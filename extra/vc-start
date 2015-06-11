@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "Starting VividCortex"
+vc-agent-007 --foreground --forbid-restarts

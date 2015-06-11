@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+set -e
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
+PROFILE_DIR="$BUILD_DIR/.profile.d"
+
+VC_HOME=$BUILD_DIR/.vc
+
+echo "Create agent directories"
+
+mkdir -p "$VC_HOME/bin"
+mkdir -p "$VC_HOME/lock"
+mkdir -p "$VC_HOME/logs"
+touch "$VC_HOME/pid"
+
+cp $BUILD_DIR/extra/vc-start $VC_HOME/bin/vc-start
+
+chmod 755 $VC_HOME/bin/vc-start
+
+mkdir -p "$PROFILE_DIR"
+
+cp $BUILD_DIR/etc/vc-vars.sh $PROFILE_DIR/vc-vars.sh
+
+chmod 755 $PROFILE_DIR/vc-vars.sh
