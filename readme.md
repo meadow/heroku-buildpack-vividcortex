@@ -44,7 +44,7 @@ git commit -m "Adding VividCortex Agents"
 git push heroku master
 ```
 
-You should see that the build was successful. However agents will not start automatically. You will need to start them as a worker process by using the Heroku command.
+You should see that the build was successful. However agents will not start automatically. You will need to start them as a worker process by using the Heroku command. NOTE: Do not scale agents to more than 1. This will put uncessary load on your database.
 
 ```
 heroku ps:scale agents=1
@@ -68,4 +68,4 @@ Example
 DATABASE_URL=postgres://user:pass@host1:port/db1,mysql://user:pass@host2:port/db2,mongo://user:pass@host3:port/db3,redis://user:pass@host3:port/db3
 ```
 
-Please report any issues to support@vividcortex.com.
+If you run into any issues please report them here or contact support@vividcortex.com.
