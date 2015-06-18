@@ -68,4 +68,14 @@ Example
 DATABASE_URL=postgres://user:pass@host1:port/db1,mysql://user:pass@host2:port/db2,mongo://user:pass@host3:port/db3,redis://user:pass@host3:port/db3
 ```
 
+### Uninstalling
+
+To remove the buildpack run the command.
+
+```
+heroku config:unset BUILDPACK_URL
+```
+
+Then remove the `agents: vc-start` definition from your Procfile.
+
 If you run into any issues please report them here or contact support@vividcortex.com.
