@@ -70,7 +70,7 @@ DATABASE_URL=postgres://user:pass@host1:port/db1,mysql://user:pass@host2:port/db
 
 ### Uninstalling
 
-To remove the buildpack run the command and unset your VC_API_TOKEN.
+To remove the buildpack and unset your VC_API_TOKEN run the commands.
 
 ```
 heroku config:unset BUILDPACK_URL
