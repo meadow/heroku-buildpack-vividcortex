@@ -28,7 +28,7 @@ Next we will add the Heroku VividCortex buildpack
 heroku config:add BUILDPACK_URL=https://github.com/VividCortex/heroku-buildpack-vividcortex.git
 ```
 
-In your account you will need to "Add New Host" from the Hosts page. Choose "On-Host" monitoring. Then we will copy the API token found at "1 Select Host" step of the new host setup wizard found in the line `sh install -t <API_TOKEN> --autostart -s --no-proxy`. Close the wizard. We will skip the rest of the steps, they will be done automatically from here forward.
+In your account from the Hosts page add a new host by clicking the "Add New Host" button in the upper right. From "Where Is The Service You Want To Monitor?" choose the "Containerized" option. From the "Agents API Token" box copy the token and close the "Install VividCortex On A New Host" dialog.
 
 Add the token to your Heroku config.
 
@@ -44,7 +44,7 @@ git commit -m "Adding VividCortex Agents"
 git push heroku master
 ```
 
-You should see that the build was successful. However agents will not start automatically. You will need to start them as a worker process by using the Heroku command. NOTE: Do not scale agents to more than 1. This will put uncessary load on your database and you will be charged for another agent licence.
+You should see that the build was successful. However agents will not start automatically. You will need to start them as a worker process by using the Heroku command. NOTE: Do not scale agents to more than 1. This will put unnecessary load on your database and you will be charged for additional agent licences.
 
 ```
 heroku ps:scale agents=1
@@ -70,12 +70,13 @@ DATABASE_URL=postgres://user:pass@host1:port/db1,mysql://user:pass@host2:port/db
 
 ### Uninstalling
 
-To remove the buildpack run the command.
+To remove the buildpack and unset your VC_API_TOKEN run the commands.
 
 ```
 heroku config:unset BUILDPACK_URL
+heroku config:unset VC_API_TOKEN
 ```
 
 Then remove the `agents: vc-start` definition from your Procfile.
 
-If you run into any issues please report them here or contact support@vividcortex.com.
+If you run into any issues please open an issue here or contact support@vividcortex.com.
