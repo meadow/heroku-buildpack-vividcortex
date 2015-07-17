@@ -18,12 +18,12 @@ mkdir -p "$VC_HOME/lock"
 mkdir -p "$VC_HOME/logs"
 touch "$VC_HOME/pid"
 
-cp $BUILD_DIR/extra/vc-start $VC_HOME/bin/vc-start
+cp $BUILDPACK_DIR/extra/vc-start $VC_HOME/bin/vc-start
 
 chmod 755 $VC_HOME/bin/vc-start
 
 mkdir -p "$PROFILE_DIR"
 
-cp $BUILD_DIR/etc/vc-vars.sh $PROFILE_DIR/vc-vars.sh
+cp $BUILDPACK_DIR/etc/vc-vars.sh $PROFILE_DIR/vc-vars.sh
 
 chmod 755 $PROFILE_DIR/vc-vars.sh
