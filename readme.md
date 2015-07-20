@@ -4,9 +4,11 @@ Installs VividCortex agents in a Heroku dyno.
 
 ## Usage
 
-This buildpack installs VividCortex agents as part of the dyno build process. This works with PostgreSQL and MySQL, provided that pg_stat_statements or performance_schema, respectively, are enabled. Note that for PostgreSQL versions 9.2 and later it's enabled by default. This will not work with the "hobby" level Heroku PostgreSQL database offerings because they do not have "pg_stat_statements" enabled. We also support Redis and MongoDB, but only for showing charts. There's no query capture because there's no pg_stat_statements or performance_schema equivalent for them.
+This buildpack installs VividCortex agents as part of the dyno build process. This works with PostgreSQL and MySQL, provided that pg_stat_statements or performance_schema, respectively, are enabled. Note that for PostgreSQL versions 9.2 and later it's enabled by default. This will not work with the "hobby" level Heroku PostgreSQL database offerings because they do not have "pg_stat_statements" enabled. We also support Redis and MongoDB, but only for showing charts. There's no query capture because there's no pg_stat_statements or performance_schema equivalent for them. For more information about the nuances of using agents for off-host monitoring refer to [the documentation here](https://vividcortex.com/docs/installing/#off-host-monitoring).
 
 ### Setup
+
+In this setup tutorial we will be using a dedicated Heroku project to run our agents in. By default Heroku only allows one buildpack per project. If you wish to configure agents to run in a project with a web application you can do so by using [the buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi)buildpack. This will allow you to define more than one build pack for your project.
 
 You will first need a database in Heroku, for this example we will use Heroku PostgreSQL. If you don't have a database already add it from your administration page, add-on marketplace, or command line to your application project. Once added use the `heroku` command `heroku config:get DATABASE_URL` to get the credentials or get the url from your account database dashboard.
 
