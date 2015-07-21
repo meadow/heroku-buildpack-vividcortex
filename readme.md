@@ -8,7 +8,7 @@ This buildpack installs VividCortex agents as part of the dyno build process. Th
 
 ### Setup
 
-In this setup tutorial we will be using a dedicated Heroku project to run our agents in. By default Heroku only allows one buildpack per project. If you wish to configure agents to run in a project with a web application you can do so by using [the buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi)buildpack. This will allow you to define more than one build pack for your project.
+In this setup tutorial we will be using a dedicated Heroku project to run our agents in. By default Heroku only allows one buildpack per project. If you wish to configure agents to run in a project with a web application you can do so by using [the buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) buildpack. This will allow you to define more than one build pack for your project.
 
 You will first need a database in Heroku, for this example we will use Heroku PostgreSQL. If you don't have a database already add it from your administration page, add-on marketplace, or command line to your application project. Once added use the `heroku` command `heroku config:get DATABASE_URL` to get the credentials or get the url from your account database dashboard.
 
