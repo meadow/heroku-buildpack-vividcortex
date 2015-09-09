@@ -62,7 +62,7 @@ That's it! If everything is successful you will see "agents.1" host in the host 
 
 ### Monitoring Multiple Databases
 
-You can monitor multiple databases from a single Heroku dyno. By passing in the databases urls in the DATABSE_URL variable as a comma separated values our agents will automatically register all of the databases.
+You can monitor multiple databases from a single Heroku dyno. By passing in the databases urls in the DATABASE_URL variable as a comma separated values our agents will automatically register all of the databases.
 
 Example
 
