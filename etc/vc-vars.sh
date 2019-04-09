@@ -3,6 +3,8 @@ if [[ -z "$VC_API_TOKEN" ]]; then
   exit 1
 fi
 
+export DATABASE_URL=$PRIMARY_URL,$FOLLOWER_URL
+
 if [[ -z "$DATABASE_URL" ]]; then
   echo "Looks like the DATABASE_URL is not set. Run: heroku config:add DATABASE_URL=<your database url>."
   exit 1
