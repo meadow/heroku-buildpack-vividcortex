@@ -15,7 +15,7 @@ export VC_RUN_DIR=$VC_HOME
 export VC_LOG_DIR=$VC_HOME/logs
 export VC_LOCK_DIR=$VC_HOME/lock
 export VC_AGENT_INSTALL_DIR=$VC_HOME/bin
-export VC_DRV_MANUAL_HOST_URI="$DATABASE_URL?sslenabled=true&sslmode=verify-full&sslca=$VC_HOME/api-production.pem"
+export VC_DRV_MANUAL_HOST_URI="$DATABASE_URL?sslenabled=true&sslmode=require&sslca=$VC_HOME/api-production.pem"
 export VC_HOSTNAME="$DYNO"
 
 PATH=$PATH:$VC_AGENT_INSTALL_DIR
