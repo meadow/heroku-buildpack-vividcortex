@@ -22,6 +22,10 @@ cp $BUILDPACK_DIR/extra/vc-start $VC_HOME/bin/vc-start
 
 chmod 755 $VC_HOME/bin/vc-start
 
+# Ship the Ubicloud CA cert into the slug so it's present on the runtime dyno.
+# $VC_HOME is $BUILD_DIR/.vc here, which becomes /app/.vc at runtime.
+cp $BUILDPACK_DIR/etc/api-production.pem $VC_HOME/api-production.pem
+
 mkdir -p "$PROFILE_DIR"
 
 cp $BUILDPACK_DIR/etc/vc-vars.sh $PROFILE_DIR/vc-vars.sh
