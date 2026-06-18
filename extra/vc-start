@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 echo "Starting VividCortex"
+
+# Stream the agent's log files to stdout so they show up in `heroku logs`.
+# The agent writes to files in $VC_LOG_DIR, not stdout; tail -F forwards them.
+# The sleep lets the agent create the log files before the glob is expanded.
+( sleep 5; tail -n +1 -F "$VC_LOG_DIR"/*.log 2>/dev/null ) &
+
+# Agent stays the foreground process so the dyno lifecycle / --forbid-restarts
+# behaves normally; when it exits, the script (and the background tail) exit too.
 vc-agent-007 --foreground --forbid-restarts
